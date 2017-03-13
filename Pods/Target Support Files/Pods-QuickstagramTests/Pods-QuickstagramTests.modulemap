@@ -1,0 +1,6 @@
+framework module Pods_QuickstagramTests {
+  umbrella header "Pods-QuickstagramTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
