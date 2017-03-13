@@ -35,6 +35,17 @@ class LoginViewController: UIViewController {
             }
         }
     }
+    
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+            // check if user is logged in.
+        if PFUser.current() != nil {
+            // if there is a logged in user then load the home view controller
+            self.performSegue(withIdentifier: "loginSegue", sender: nil)
+
+        }
+        
+        return true
+    }
 
     @IBAction func onSignUp(_ sender: Any) {
         

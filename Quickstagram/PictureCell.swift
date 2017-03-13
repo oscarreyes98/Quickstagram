@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import Parse
 
 class PictureCell: UITableViewCell {
 
     @IBOutlet weak var picImageView: UIImageView!
     @IBOutlet weak var captionLabel: UILabel!
+    
+    var instagramPost: PFObject!
+
     
     
     override func awakeFromNib() {

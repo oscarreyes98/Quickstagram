@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.initialize(
             with: ParseClientConfiguration(block: { (configuration:ParseMutableClientConfiguration) -> Void in
                 configuration.applicationId = "Quickagram"
+                configuration.clientKey = "adasdasoskdaljsdk"
                 configuration.server = "https://fathomless-lake-41022.herokuapp.com/parse"
             })
         )

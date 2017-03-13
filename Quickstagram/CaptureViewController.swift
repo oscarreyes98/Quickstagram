@@ -19,6 +19,8 @@ class CaptureViewController: UIViewController,UIImagePickerControllerDelegate, U
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        pictureImageView.layer.borderWidth = 2
+        pictureImageView.layer.borderColor = UIColor.black.cgColor
 
         imagePicker.delegate = self
         
@@ -38,12 +40,6 @@ class CaptureViewController: UIViewController,UIImagePickerControllerDelegate, U
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             pictureImageView.image = pickedImage
             
-           /* if self.pictureImageView.image != nil {
-                self.addImageLabel.isHidden = true
-            }
-            else {
-                self.addImageLabel.isHidden = false
-            }*/
         }
         dismiss(animated: true, completion: nil)
     }
@@ -86,7 +82,7 @@ class CaptureViewController: UIViewController,UIImagePickerControllerDelegate, U
                 self.tabBarController?.selectedIndex = 0
                 self.pictureImageView.image = nil
                 self.captionTextField.text = ""
-                //self.addImageLabel.isHidden = false
+
             }
             else {
                 print(error?.localizedDescription ?? "Error submitting photo")

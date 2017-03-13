@@ -22,7 +22,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.postsTableView.dataSource = self
         self.postsTableView.delegate = self
         self.postsTableView.rowHeight = UITableViewAutomaticDimension
-        self.postsTableView.estimatedRowHeight = 140
+        self.postsTableView.estimatedRowHeight = 350
         
         let query = PFQuery(className: "Post")
         
@@ -44,6 +44,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Dispose of any resources that can be recreated.
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        postsTableView.reloadData()
+
+        if let index = self.postsTableView.indexPathForSelectedRow{
+            self.postsTableView.deselectRow(at: index, animated: true)
+        }
+        super.viewWillAppear(animated)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (posts?.count) ?? 0
     }
@@ -62,7 +72,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         cell.captionLabel.text = post?["caption"] as? String
         
-        cell.backgroundColor = UIColor.cyan
+        cell.backgroundColor = UIColor.white
         
         return cell
     }
